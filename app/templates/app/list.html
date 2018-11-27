@@ -1,0 +1,24 @@
+{% extends 'app/base-list.html' %}
+
+{% block table %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Pylog_ID</th>
+          <th scope="col">Pylog_Estapa_ID</th>
+          <th scope="col">Pylog_Desrição</th>
+          <th scope="col">Pylog_Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for list in lists%}
+        <tr>
+          <th scope="row">{{ list.pylog_id }}</th>
+          <td>{{ list.pylog_etapa_id }}</td>
+          <td>{{ list.pylog_desc }}</td>
+          <td>{{ list.pylog_datetime|linebreaksbr }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}

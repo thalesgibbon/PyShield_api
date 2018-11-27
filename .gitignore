@@ -1,0 +1,4 @@
+__key__.py
+*/__pycache__/*
+arquivos_recebidos/*
+app/migrations/*
