@@ -6,7 +6,6 @@ class Py_Log_mssql(models.Model):
 
         managed = False
         db_table = "[DW].[PY_LOG]"
-        #print(db_table)
     pylog_id = models.IntegerField(primary_key=True)
     pylog_etapa_id = models.IntegerField()
     pylog_desc = models.CharField(max_length=200)

@@ -1,9 +1,7 @@
-from django.urls import path
 from django.conf.urls import url
-from . import views
-
+from .views import Py_LogList
 
 urlpatterns = [
-    url(r'^logs/$', views.Py_LogList.as_view(), name='pylog-list'),
-    path('', views.home, name='home'),
+    url(r'^logs/?$', Py_LogList.as_view(), name='logs'),
+    url(r'^log/(?P<pylog_id>[0-9]+)/?$', Py_LogList.as_view(), name='log'),
     ]
