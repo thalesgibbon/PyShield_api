@@ -1,5 +1,4 @@
 import os
-from __key__ import key, ip
 
 driver_sqlserver = 'ODBC Driver 17 for SQL Server'
 
@@ -11,7 +10,7 @@ SECRET_KEY = '#_ldt5y=6pq&h3oxb)d7dfdz+rtjtpmkf2fa1=y^1s*k!)ho&h'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.10.4.82', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -58,29 +57,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'projeto.wsgi.application'
 
 
+
 DATABASES = {
     'default': {
-        'NAME': 'DJANGO',
-        'ENGINE': 'sql_server.pyodbc',
-        'HOST': ip['sqlserver_planejamento'],
-        'USER': 'usr_mis',
-        'PASSWORD': key['pw_usr_mis'],
-        'OPTIONS': {
-            'driver': driver_sqlserver,
-        },
-    },
-
-    'mssql': {
-        'NAME': 'CODIGOS',
-        'ENGINE': 'sql_server.pyodbc',
-        'HOST': ip['sqlserver_planejamento'],
-        'USER': 'planejamento',
-        'PASSWORD': key['pw_planejamento'],
-        'OPTIONS': {
-            'driver': driver_sqlserver,
-        },
-    },
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 
