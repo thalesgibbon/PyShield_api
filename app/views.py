@@ -4,16 +4,21 @@ from rest_framework.response import Response
 from rest_framework import status
 import pandas as pd
 from __config__ import change_in_latitude, m_to_miles
+flag_hackathon = True
 
 
 bo = pd.read_pickle("C:\PyShield\data\#TransformBO.pkl")
-gmaps = pd.read_pickle("C:\PyShield\data\#request_gmaps.pkl")
 
 
 class score_rota(APIView):
     def get(self, request):
-        rotas = str(request.GET['rotas'])
-        print(rotas)
+
+        # a aplicacao tem como objetivo receber um request no momento das rotas
+        # portanto foi 'forcado' a captura do json no projeto de processamento de dados (PyShield)
+        if flag_hackathon:
+            gmaps = pd.read_pickle("C:\PyShield\data\#request_gmaps.pkl")
+        else:
+            dicionario_de_rotas = str(request.GET['rotas'])
 
         desvio_padrao = change_in_latitude(m_to_miles(20))
 
